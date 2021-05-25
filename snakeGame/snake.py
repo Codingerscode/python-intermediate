@@ -14,23 +14,24 @@ class Snake:
         self.screen.bgcolor("black")
         self.screen.setup(width=600,height=600)
         self.screen.title("Snake game")
-        for i in range(3):
+        self.header = self.snake[0]
+        for i in range(len(self.snake)):
             self.snake[i].color("green")
             self.snake[i].up()
             self.snake[i].setpos(x=i*-20,y=0.0)
     
     def move(self):
         self.screen.tracer(0)
-        while True:
-            self.screen.update() 
-            time.sleep(0.1)
-            for i in range(len(self.snake)-1,0,-1):
-                self.snake[i].goto(self.snake[i-1].xcor(),self.snake[i-1].ycor())
-            self.snake[0].fd(20)
+        # while True:
+        self.screen.update() 
+        time.sleep(0.1)
+        for i in range(len(self.snake)-1,0,-1):
+            self.snake[i].goto(self.snake[i-1].xcor(),self.snake[i-1].ycor())
+        self.snake[0].fd(20)
 
     def left(self):
         self.screen.update()
-        time.sleep(0.1)
+        time.sleep(0.01)
         for i in range(len(self.snake)-1,0,-1):
             self.snake[i].goto(self.snake[i-1].xcor(),self.snake[i-1].ycor())
         if self.snake[0].heading()!=RIGHT:
@@ -39,7 +40,7 @@ class Snake:
 
     def right(self):
         self.screen.update()
-        time.sleep(0.1)
+        time.sleep(0.01)
         for i in range(len(self.snake)-1,0,-1):
             self.snake[i].goto(self.snake[i-1].xcor(),self.snake[i-1].ycor())
         if self.snake[0].heading()!=LEFT:
@@ -48,7 +49,7 @@ class Snake:
 
     def down(self):
         self.screen.update()
-        time.sleep(0.1)
+        time.sleep(0.01)
         for i in range(len(self.snake)-1,0,-1):
             self.snake[i].goto(self.snake[i-1].xcor(),self.snake[i-1].ycor())
         if self.snake[0].heading()!=UP:
@@ -57,7 +58,7 @@ class Snake:
 
     def up(self):
         self.screen.update()
-        time.sleep(0.1)
+        time.sleep(0.01)
         for i in range(len(self.snake)-1,0,-1):
             self.snake[i].goto(self.snake[i-1].xcor(),self.snake[i-1].ycor())
         if self.snake[0].heading()!=DOWN:
