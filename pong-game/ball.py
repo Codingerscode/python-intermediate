@@ -3,16 +3,22 @@ class Ball(Turtle):
     def __init__(self):
         super().__init__(shape="circle")
         self.color("green")
-        self.lastx = self.xcor()
-        self.lasty = self.ycor()
+        self.x_move = 10
+        self.y_move = 10
+        self.seth(40)
+        self.movespead = 0.1
+        
 
     def ball_move(self):
         self.up()
-        self.goto(self.xcor()+15,self.ycor()+15)
-        self.down()
-
-        # if self.ycor()==280 and self.xcor() > self.lastx or self.xcor() == -380 and  self.ycor() < self.lasty:
-        #     self.rt(60)
+        self.goto(self.xcor()+self.x_move,self.ycor()+self.y_move)
         
-        if self.ycor() > 280 or self.ycor() < -280:
-            self.setx(180)
+    def bounce(self):
+        self.y_move *= -1
+
+    def collisionbounce(self):
+        self.x_move *= -1
+        self.movespead *=0.9
+
+    
+        

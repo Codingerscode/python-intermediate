@@ -6,6 +6,7 @@ screen = Screen()
 
 cursor.pen(fillcolor="black",pensize=1,speed=10000)
 screen.colormode(255)
+screen.bgcolor("black")
 
 deg = int(input("Enter the degree of shift"))
 
