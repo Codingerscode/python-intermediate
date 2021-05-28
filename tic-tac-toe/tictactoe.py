@@ -145,7 +145,7 @@ while True:
                 
                 draw_figures()
         if event.type == pygame.KEYDOWN:
-            if event.key == pygame.k_r:
+            if event.key == pygame.K_r:
                 restart()
 
     pygame.display.update()
