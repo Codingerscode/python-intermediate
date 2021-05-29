@@ -47,7 +47,7 @@ for i in range(num_of_enemies):
 #bullet img
 bulletImg = pygame.image.load("bullet.png")
 bulletx = 0
-bullety = 480
+bullety = Y
 bulletchangeX = 0
 bulletchangeY = 1
 
@@ -137,7 +137,7 @@ while running:
 
 
     if bullety <=0:
-        bullety = 480
+        bullety = Y
         bulletstate = "ready"
 
 
@@ -173,7 +173,7 @@ while running:
         if collision:
             explosionsound = mixer.Sound('explosion.wav')
             explosionsound.play()
-            bullety = 480
+            bullety = Y
             bulletstate = "ready"
             score_value += 1
             eX[ir] = random.randint(64,735)

@@ -4,7 +4,7 @@ import numpy as np
 pygame.init()
 
 WIDTH = 600
-HEIGHT = 600
+HEIGHT = WIDTH
 LINE_COLOR=(23,145,135)
 LINE_WIDHT = 15
 player = 1
@@ -58,13 +58,14 @@ def check_win(player):
 
     for row in range(3):
         if board[row][0] == player and board[row][1] == player and board[row][2] == player:
-            draw_horizontal_winning(col,player)
+            draw_horizontal_winning(row,player)
             return True
 
-    for row in range(3):
-        if board[row][0] == player and board[row][1] == player and board[row][2] == player:
-            draw_horizontal_winning(col,player)
-            return True
+    # for row in range(3):
+    #     if board[row][0] == player and board[row][1] == player and board[row][2] == player:
+    #         draw_horizontal_winning(col,player)
+    #         return True
+
     if board[2][0] == player and board[1][1] == player and board[0][2] == player:
         draw_asc_winning(player)
         return True       
@@ -77,7 +78,7 @@ def check_win(player):
 
 
 def draw_vertical_winning(col,player):
-    posX = col * 200 + 200
+    posX = col * 200 + 100
     if player ==1:
         color = (239,231,200)
     elif player == 2:
@@ -87,7 +88,7 @@ def draw_vertical_winning(col,player):
 
 
 def draw_horizontal_winning(row,player):
-    posY = row * 200 + 200
+    posY = row * 200 + 100
     if player ==1:
         color = (239,231,200)
     elif player == 2:
@@ -111,6 +112,7 @@ def draw_desc_winning(player):
     pygame.draw.line(screen,color,(15,15),(WIDTH-15,HEIGHT-15),15)
 
 def restart():
+    global player
     screen.fill((28,170,156))
     draw_lines()
     player = 1
