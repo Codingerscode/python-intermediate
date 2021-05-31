@@ -23,8 +23,8 @@ score = Scoreboard()
 
 #setting up event - listener
 screen.listen()
-screen.onkeypress(key="Up",fun=lambda:player.fd(8))
-screen.onkeypress(key="Down",fun=lambda:player.bk(8))
+screen.onkeypress(key="Up",fun=lambda:player.fd(10))
+screen.onkeypress(key="Down",fun=lambda:player.bk(10))
 
 
 #showing up score   
@@ -36,7 +36,7 @@ while game_is_on:
         cars.createcar()
 
     cars.move()
-    time.sleep( 0.1 / (10 +score.level))
+    time.sleep( 0.1 / (2 * score.level))
     screen.update()
 
 #increament of score

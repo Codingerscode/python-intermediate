@@ -8,9 +8,9 @@ MOVE_INCREMENT = 10
 class CarManager(Turtle):
     def __init__(self):
         super().__init__()
+        self.ht()
         self.cars = []
 
-        
     def move(self):
         for i in self.cars:
             i.up()
