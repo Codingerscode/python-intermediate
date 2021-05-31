@@ -23,7 +23,3 @@ class CarManager(Turtle):
         self.cars[len(self.cars)-1].setpos(x=300,y=random.randint(-130,180))
         self.cars[len(self.cars)-1].fd(STARTING_MOVE_DISTANCE)
     
-    
-
-
-    
