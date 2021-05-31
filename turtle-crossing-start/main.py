@@ -1,6 +1,6 @@
 import turtle
 import time
-# from playsound import playsound
+import os
 from player import Player
 from car_manager import CarManager
 from scoreboard import Scoreboard
@@ -15,7 +15,6 @@ screen.tracer(0)
 
 
 #setting up object
-# playsound('background.wav')
 player = Player()
 cars = CarManager()
 score = Scoreboard()
@@ -31,25 +30,26 @@ screen.onkeypress(key="Down",fun=lambda:player.bk(10))
 score.showscore()
 count = 0
 game_is_on = True
+
+os.system("afplay background.wav&")
 while game_is_on:
-    if count%5 == 0:
+    if count%7 == 0:
         cars.createcar()
 
     cars.move()
     time.sleep( 0.1 / (2 * score.level))
     screen.update()
 
-#increament of score
+    #increament of score
     if player.ycor() >195:
         score.level +=1
         score.showscore()
-        player.up()
-        player.seth(90)
-        player.goto(x=0.0,y=-200)
+        player.createplayer()
 
-#checking of collision   
+    #checking of collision   
     for i  in cars.cars:
         if i.distance(player) < 20:
+            os.system("afplay explosion.wav")
             game_is_on = False
 
     count += 1

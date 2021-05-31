@@ -9,9 +9,9 @@ class Player(Turtle):
     def __init__(self):
         super().__init__("turtle")
         self.color("white")
+        self.createplayer()
+
+    def createplayer(self):
         self.up()
         self.seth(90)
         self.goto(x=0.0,y=-200)
-
-
-
