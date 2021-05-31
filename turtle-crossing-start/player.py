@@ -12,5 +12,6 @@ class Player(Turtle):
         self.up()
         self.seth(90)
         self.goto(x=0.0,y=-200)
-        
-        
+
+
+

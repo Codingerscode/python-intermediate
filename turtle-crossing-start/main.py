@@ -34,13 +34,23 @@ while game_is_on:
         cars.createcar()
 
     cars.move()
-    time.sleep(score.level)
+    time.sleep( 0.1 / (10 +score.level))
     screen.update()
 
     if player.ycor() >195:
         score.level +=1
-        
+        score.showscore()
+        player.up()
+        player.seth(90)
+        player.goto(x=0.0,y=-200)
+
+    
+    for i  in cars.cars:
+        if i.distance(player) < 20:
+            game_is_on = False
 
     count += 1
 
+# screen.clearscreen()
+score.goodbye()
 screen.exitonclick()

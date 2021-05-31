@@ -11,5 +11,11 @@ class Scoreboard(Turtle):
         self.goto(x=-270,y=190)
 
     def showscore(self):
+        self.clear()
         self.write(f"Level: {self.level}",align="left", font=FONT)
-        
+
+    def goodbye(self):
+        self.goto(-70,0)
+        self.color("white")
+        self.write("Game over",align="left", font=FONT)
+
