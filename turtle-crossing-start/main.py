@@ -51,6 +51,11 @@ while game_is_on:
         if i.distance(player) < 20:
             os.system("afplay explosion.wav")
             game_is_on = False
+        if score.level > score.highlevel:
+            score.highlevel =  score.level
+            with open("data.txt") as data:
+                data.write(str(score.highlevel))
+            
 
     count += 1
 
